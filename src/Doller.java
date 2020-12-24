@@ -3,7 +3,7 @@ public class Doller {
   Doller(int amount) {
     this.amount = amount;
   }
-  void times(int multiplier) {
-    amount *= multiplier;
+  Doller times(int multiplier) {
+    return new Doller(amount * multiplier);
   }
 }
