@@ -1,5 +1,5 @@
 public class Doller {
-  int amount;
+  private final int amount;
 
   Doller(int amount) {
     this.amount = amount;
@@ -10,6 +10,7 @@ public class Doller {
   }
 
   @Override public boolean equals(Object object) {
+    // Javaは同一クラスであれば別のオブジェクトのprivateフィールドにアクセスできる
     final Doller doller = (Doller) object;
     return this.amount == doller.amount;
   }
