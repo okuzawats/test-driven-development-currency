@@ -4,6 +4,6 @@ public class Money {
   @Override public boolean equals(Object object) {
     // Javaは同一クラスであれば別のオブジェクトのprivateフィールドにアクセスできる
     final Money money = (Money) object;
-    return this.amount == money.amount;
+    return this.amount == money.amount && getClass().equals(money.getClass());
   }
 }
