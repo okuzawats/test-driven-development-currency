@@ -1,17 +1,9 @@
-public class Franc {
-  private final int amount;
-
+public class Franc extends Money {
   Franc(int amount) {
     this.amount = amount;
   }
 
   Franc times(int multiplier) {
     return new Franc(amount * multiplier);
-  }
-
-  @Override public boolean equals(Object object) {
-    // Javaは同一クラスであれば別のオブジェクトのprivateフィールドにアクセスできる
-    final Franc franc = (Franc) object;
-    return this.amount == franc.amount;
   }
 }
