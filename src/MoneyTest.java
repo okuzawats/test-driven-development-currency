@@ -63,6 +63,16 @@ public class MoneyTest {
   }
 
   @Test
+  public void testMixedAddition() {
+    Expression fiveBucks = Money.dollar(5);
+    Expression fiveFrancs = Money.franc(10);
+    Bank bank = new Bank();
+    bank.addRate("CHF", "USD", 2);
+    Money result = bank.reduce(fiveBucks.plus(fiveFrancs), "USD");
+    assertEquals(Money.dollar(10), result);
+  }
+
+  @Test
   public void testEquality() {
     assertTrue(Money.dollar(5).equals(Money.dollar(5)));
     assertFalse(Money.dollar(5).equals(Money.dollar(6)));
