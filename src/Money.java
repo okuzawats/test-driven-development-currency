@@ -19,7 +19,8 @@ class Money implements Expression {
     return amount + " " + currency;
   }
 
-  Money times(int multiplier) {
+  @Override
+  public Money times(int multiplier) {
     return new Money(amount * multiplier, currency);
   }
 
