@@ -1,4 +1,4 @@
-abstract class Money {
+class Money {
   protected int amount;
   protected String currency;
 
@@ -7,13 +7,21 @@ abstract class Money {
     this.currency = currency;
   }
 
-  @Override public boolean equals(Object object) {
+  @Override
+  public boolean equals(Object object) {
     // Javaは同一クラスであれば別のオブジェクトのprivateフィールドにアクセスできる
     final Money money = (Money) object;
-    return this.amount == money.amount && getClass().equals(money.getClass());
+    return this.amount == money.amount && this.currency.equals(money.currency);
   }
 
-  abstract Money times(int multiplier);
+  @Override
+  public String toString() {
+    return amount + " " + currency;
+  }
+
+  Money times(int multiplier) {
+    return new Money(amount * multiplier, currency);
+  }
 
   String currency() {
     return currency;
